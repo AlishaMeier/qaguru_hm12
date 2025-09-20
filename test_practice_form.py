@@ -10,8 +10,6 @@ IMAGE_PATH = os.path.join(os.path.dirname(__file__), 'resources/test_check.txt')
 def test_fill_form(setup_browser):
     browser.open("/automation-practice-form")
 
-    attach.add_screenshot(browser)
-
     with allure.step("Filled name and surname"):
         browser.element('[id="firstName"]').should(be.visible).type("Alisha")
         browser.element('[id="lastName"]').should(be.visible).type("Meier")
