@@ -26,11 +26,11 @@ def pytest_runtest_makereport(item, call):
     outcome = yield
     report = outcome.get_result()
     if report.failed:
-        screenshot_path = "failure.png"
-        browser.screenshot(screenshot_path)
+        screenshot_path = 'failure.png'
+        browser.driver.save_screenshot(screenshot_path)  # <- исправлено
         allure.attach.file(
             screenshot_path,
-            name="failure",
+            name='failure',
             attachment_type=allure.attachment_type.PNG
         )
 
